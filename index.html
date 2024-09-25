@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time-display</title>
+</head>
+<body style="display: flex;justify-content: center;">
+    <div style="display:flex;background-color: rgb(125, 155, 155);justify-content:center;width:400px">
+        <h1>Time:   </h1>
+        <h1 id="time-element"></h1>
+    </div>
+    
+    <script>
+     let putZero=(num)=>{
+          return (num<10)?"0"+num : num;
+     }
+
+
+     let timeDisplay = document.querySelector("#time-element");
+    let showTime =()=>{
+            let dt = new Date()
+            timeDisplay.innerHTML = putZero(dt.getHours()%12)+":"+putZero(dt.getMinutes())+":"+putZero(dt.getSeconds())
+         
+        setInterval(()=>{
+            showTime();
+        },1000)
+    }
+      showTime();
+    </script>
+</body>
+</html>
